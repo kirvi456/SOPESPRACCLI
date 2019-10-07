@@ -26,6 +26,12 @@ class MyView3 extends PageViewElement {
         text-align: right;
         
       }
+
+      #chart1{
+        width:80%;
+        margin: auto;
+        text-aling: center;
+      }
       `
     ];
   }
@@ -56,7 +62,7 @@ class MyView3 extends PageViewElement {
        
         const data = GoogleCharts.api.visualization.arrayToDataTable([
             ['RAM', 'MB'],
-            ['Memoria total', window.freeRamVal],
+            ['Memoria libre', window.freeRamVal],
             ['Memoria en uso', window.usoRamVal]
         ]);
         var options = {
