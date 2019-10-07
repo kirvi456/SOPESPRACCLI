@@ -82,7 +82,7 @@ class MyView2 extends PageViewElement {
           method: 'GET',
           mode: 'cors'
         };  
-        const response = await fetch('http://localhost:3000/cpu',miInit);
+        const response = await fetch('http://146.148.68.89:3000/cpu',miInit);
           if (response.status === 200) {
               const myJson = await response.json(); 
               window.cpuVal = Number(myJson.Uso_cpu).toFixed(2);
