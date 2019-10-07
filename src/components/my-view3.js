@@ -14,12 +14,13 @@ class MyView3 extends PageViewElement {
       #informacion{
         font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
         border-collapse: collapse;
-        width: 50%;
+        width: 60%;
         margin: auto;
       }
 
       #infodiv{
         height:100px;
+        width: 80%;
       }
 
       .titulos{
