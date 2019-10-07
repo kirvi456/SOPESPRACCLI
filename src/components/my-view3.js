@@ -72,7 +72,7 @@ class MyView3 extends PageViewElement {
           method: 'GET',
           mode: 'cors'
         };  
-        const response = await fetch('http://localhost:3000/memoria',miInit);
+        const response = await fetch('http://146.148.68.89:3000/memoria',miInit);
           if (response.status === 200) {
               const myJson = await response.json(); 
               window.totalRamVal = myJson.Total_mem;
