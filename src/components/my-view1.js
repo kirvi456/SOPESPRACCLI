@@ -116,7 +116,7 @@ class MyView1 extends PageViewElement {
       body: data
     };
 
-    fetch('http://146.148.68.89:3000/kill',miInit)
+    fetch('http://35.193.165.96:3000/kill',miInit)
     .then(response => this.obtenerDatos()
     );
 
@@ -129,7 +129,7 @@ class MyView1 extends PageViewElement {
       mode: 'cors'
     };
 
-    fetch('http://146.148.68.89:3000/principal',miInit)
+    fetch('http://35.193.165.96:3000/principal',miInit)
     .then(function(response) {
       return response.json();
     })
