@@ -50,7 +50,7 @@ class MyView1 extends PageViewElement {
       }
 
       .mensaje{
-        height: 90px;
+        height: 100px;
         width: 60%;
         border: 2px solid #d6d0ce;
         margin: auto;
@@ -59,8 +59,7 @@ class MyView1 extends PageViewElement {
       .caja_de_texto{
         display: inline-block;
         width: 100%;
-        height: 69%;
-        border: 1px solid #d6d0ce;
+        height: 65%;
         margin-top: 0 !important;
         margin-bottom: 0 !important;
       }
