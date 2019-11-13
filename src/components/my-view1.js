@@ -53,9 +53,12 @@ class MyView1 extends PageViewElement {
         height: 90px;
         width: 90%;
         border: 2px solid #d6d0ce;
-        display: inline-block;
+        margin: auto;
       }
 
+      .titulomensaje{
+        display: inline-block;
+      }
       `
     ];
   }
