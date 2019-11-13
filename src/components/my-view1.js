@@ -22,6 +22,16 @@ class MyView1 extends PageViewElement {
       SharedStyles,
       css`
 
+      hr { 
+        display: block;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+      } 
+
       #contenedor{
         width: 90%;
         height: 500px;
@@ -63,25 +73,19 @@ class MyView1 extends PageViewElement {
       .mensaje{
         height: 100px;
         width: 95%;
-        border: 2px solid #d6d0ce;
         margin: auto;
       }
 
       .caja_de_texto{
         display: inline-block;
         width: 100%;
-        height: 66%;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;  
+        height: 66%; 
       }
 
       .titulomensaje{
         display: inline-block;
         width: 100%;
         height: 25%;
-        border: 1px solid #d6d0ce;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
       }
 
       .usuariop{
@@ -190,12 +194,12 @@ class MyView1 extends PageViewElement {
       <div class = "mensaje">
 
         <div class = "titulomensaje">
-          <p class = "usuariop">
-            &nbsp;&nbsp;&nbsp; @${myJson[k].usuario}
-          </p>
           <p class = "nombrep">
-            &nbsp;&nbsp;${myJson[k].nombre}
+            &nbsp;&nbsp;&nbsp;${myJson[k].nombre}
           </p>
+          <p class = "usuariop">
+            &nbsp;@${myJson[k].usuario}
+          </p>          
         </div>
 
         <div class = "caja_de_texto">
@@ -204,6 +208,7 @@ class MyView1 extends PageViewElement {
           </p>     
         </div>
       </div>   
+      <hr>
       <br>
       `;
       this.shadowRoot.querySelector("#tabladiv").innerHTML = aux;
