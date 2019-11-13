@@ -128,7 +128,7 @@ class MyView1 extends PageViewElement {
       mode: 'cors'
     };
 
-    fetch('https://104.154.225.229/informacion',miInit)
+    fetch('http://104.154.225.229:5000/informacion',miInit)
     .then(function(response) {
       return response.json();
     })
