@@ -68,6 +68,11 @@ class MyView1 extends PageViewElement {
         font-weight: bold;
         color: #E91E63;
       }
+
+      .nombrep{
+        float: left;
+        color: #dbd5d7;
+      }
       `
     ];
   }
@@ -156,10 +161,10 @@ class MyView1 extends PageViewElement {
 
         <div class = "titulomensaje">
           <p class = "usuariop">
-            ${myJson[k].usuario}
+            &nbsp;&nbsp;&nbsp; @${myJson[k].usuario}
           </p>
           <p class = "nombrep">
-            ${myJson[k].nombre}
+            &nbsp;&nbsp;${myJson[k].nombre}
           </p>
         </div>
 
@@ -169,6 +174,7 @@ class MyView1 extends PageViewElement {
           </p>     
         </div>
       </div>   
+      <br>
       `;
       this.shadowRoot.querySelector("#tabladiv").innerHTML = aux;
     }
