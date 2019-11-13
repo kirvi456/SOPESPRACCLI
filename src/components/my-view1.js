@@ -60,29 +60,34 @@ class MyView1 extends PageViewElement {
         display: inline-block;
         width: 100%;
         height: 70%;
-        border: 2px solid #d6d0ce;
+        border: 1px solid #d6d0ce;
       }
 
       .titulomensaje{
         display: inline-block;
         width: 100%;
         height: 30%;
-        
+        border: 1px solid #d6d0ce;
       }
 
       .usuariop{
         float: left;
         font-weight: bold;
         color: #E91E63;
+        margin-top: 0;
+        margin-bottom: 0;
       }
 
       .nombrep{
         float: left;
         color: #dbd5d7;
+        margin-top: 0;
+        margin-bottom: 0;
       }
 
       .textop{
-
+        margin-top: 0;
+        margin-bottom: 0;
       }
       `
     ];
