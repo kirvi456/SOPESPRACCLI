@@ -22,20 +22,9 @@ class MyView1 extends PageViewElement {
       SharedStyles,
       css`
 
-      #informacion td{
-        width:50%;
-      }
-
       .titulos{
         text-align: right;
         
-      }
-
-      #informacion{
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 60%;
-        margin: auto;
       }
 
       #infodiv{
@@ -43,10 +32,11 @@ class MyView1 extends PageViewElement {
       }
 
       #tabladiv{
-        height:150px;
+        height: 100px;
         width: 250;
         overflow:scroll;
         overflow-x:hidden;
+        margin: auto;
       }
 
       .mensaje{
