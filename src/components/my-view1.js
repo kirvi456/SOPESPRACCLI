@@ -22,22 +22,42 @@ class MyView1 extends PageViewElement {
       SharedStyles,
       css`
 
+      #contenedor{
+        width: 500px;
+        height: 90%;
+
+      }
+
+      #infodiv{
+        height:50%;
+        height: 90%;
+      }
+
+      #tabladiv{
+        height: 90%;
+        width: 50%;
+        overflow:scroll;
+        overflow-x:hidden;
+        margin: auto;
+      }
+
+      #informacion td{
+        width:50%;
+      }
+
       .titulos{
         text-align: right;
         
       }
 
-      #infodiv{
-        height:200px;
-      }
-
-      #tabladiv{
-        height: 100px;
-        width: 250;
-        overflow:scroll;
-        overflow-x:hidden;
+      #informacion{
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 60%;
         margin: auto;
       }
+
+     
 
       .mensaje{
         height: 100px;
@@ -193,10 +213,11 @@ class MyView1 extends PageViewElement {
   render() {
     
     return html`
-      
-      <div id="infodiv">
-      </div>
-      <div id="tabladiv">
+      <div id= "contenedor">
+        <div id="infodiv">
+        </div>
+        <div id="tabladiv">
+        </div>
       </div>
     `;
   }
