@@ -58,16 +58,15 @@ class MyView1 extends PageViewElement {
 
       .caja_de_texto{
         display: inline-block;
-        width: 90%;
-        height: 60px;
+        width: 100%;
+        height: 70%;
         border: 2px solid #d6d0ce;
-        float: left;
       }
 
       .titulomensaje{
         display: inline-block;
-        width: 90%;
-        height: 30px;
+        width: 100%;
+        height: 30%;
         
       }
 
