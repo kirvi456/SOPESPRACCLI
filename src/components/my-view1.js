@@ -90,17 +90,18 @@ class MyView1 extends PageViewElement {
 
       .usuariop{
         float: left;
-        font-weight: bold;
-        color: #E91E63;
         margin-top: 0;
-        margin-bottom: 0;
+        margin-bottom: 0;        
+        color: #a8a7a3;
       }
 
       .nombrep{
         float: left;
-        color: #dbd5d7;
         margin-top: 0;
         margin-bottom: 0;
+        
+        font-weight: bold;
+        color: #E91E63;
       }
 
       .textop{
@@ -198,7 +199,7 @@ class MyView1 extends PageViewElement {
             &nbsp;&nbsp;&nbsp;${myJson[k].nombre}
           </p>
           <p class = "usuariop">
-            &nbsp;@${myJson[k].usuario}
+            &nbsp; @${myJson[k].usuario}
           </p>          
         </div>
 
