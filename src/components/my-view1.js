@@ -51,9 +51,17 @@ class MyView1 extends PageViewElement {
 
       .mensaje{
         height: 90px;
-        width: 90%;
+        width: 60%;
         border: 2px solid #d6d0ce;
         margin: auto;
+      }
+
+      .caja_de_texto{
+        display: inline-block;
+        width: 90%;
+        height: 60px;
+        border: 2px solid #d6d0ce;
+        float: left;
       }
 
       .titulomensaje{
@@ -72,6 +80,10 @@ class MyView1 extends PageViewElement {
       .nombrep{
         float: left;
         color: #dbd5d7;
+      }
+
+      .textop{
+
       }
       `
     ];
