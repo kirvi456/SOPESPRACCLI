@@ -43,8 +43,8 @@ class MyView1 extends PageViewElement {
       }
 
       #tabladiv{
-        height:200px;
-
+        height:150px;
+        width: 250;
         overflow:scroll;
         overflow-x:hidden;
       }
@@ -61,8 +61,7 @@ class MyView1 extends PageViewElement {
         width: 100%;
         height: 66%;
         margin-top: 0 !important;
-        margin-bottom: 0 !important;        
-        border: 1px solid #d6d0ce;
+        margin-bottom: 0 !important;  
       }
 
       .titulomensaje{
