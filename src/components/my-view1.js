@@ -17,7 +17,6 @@ import { SharedStyles } from './shared-styles.js';
 
 class MyView1 extends PageViewElement {
 
-
   static get styles() {
     return [
       SharedStyles,
@@ -129,7 +128,7 @@ class MyView1 extends PageViewElement {
       mode: 'cors'
     };
 
-    fetch('http://35.193.165.96:3000/principal',miInit)
+    fetch('https://104.154.225.229/informacion',miInit)
     .then(function(response) {
       return response.json();
     })
@@ -143,36 +142,28 @@ class MyView1 extends PageViewElement {
     this.shadowRoot.querySelector("#infodiv").innerHTML = `
       <table id="informacion">
       <tr>
-        <td class="titulos">Ejecutandose :</td>
-        <td>${myJson.Procesos_ejecutandose}</td>
+        <td class="titulos">Total de Usuarios :</td>
+        <td>${myJson.item1}</td>
       </tr>
       <tr>
-        <td class="titulos">Suspendidos :</td>
-        <td>${myJson.Procesos_suspendidos}</td>
+        <td class="titulos">Total de Tweets :</td>
+        <td>${myJson.item2}</td>
       </tr>
       <tr>
-        <td class="titulos">Detenidos :</td>
-        <td>${myJson.Procesos_detenidos}</td>
+        <td class="titulos">Total de Categorias :</td>
+        <td>${myJson.item3}</td>
       </tr>
       <tr>
-        <td class="titulos">Desocupados :</td>
-        <td>${myJson.Procesos_desocupados}</td>
+        <td class="titulos">Usuario con mas Tweets :</td>
+        <td>${myJson.item4}</td>
       </tr>
       <tr>
-        <td class="titulos">Zombie :</td>
-        <td>${myJson.Procesos_zombie}</td>
-      </tr>
-      <tr>
-        <td class="titulos">Otros :</td>
-        <td>${myJson.Procesos_otros}</td>
-      </tr>
-      <tr id="total" >
-        <td class="titulos">Total:</td>
-        <td>${myJson.Procesos_total}</td>
+        <td class="titulos">Categoria con mas Tweets :</td>
+        <td>${myJson.item}</td>
       </tr>
       </table>
       `;
-    this.shadowRoot.querySelector("#tabladiv").innerHTML = myJson.Procesos_tabla;
+    //this.shadowRoot.querySelector("#tabladiv").innerHTML = myJson.Procesos_tabla;
   }
 
   render() {
@@ -180,15 +171,8 @@ class MyView1 extends PageViewElement {
     return html`
       
       <div id="infodiv">
-        <p>jujujuju</p>
       </div>
       <div id="tabladiv">
-        <p>jujujuju</p>
-      </div>
-      <div id="btndiv">
-        <input type="" id="inputProcess">
-        <button id="btnKill" @click="${this.matarProceso}">Kill</button>
-        <button id="btn" @click="${this.obtenerDatos}">Actualizar</button>
       </div>
     `;
   }
