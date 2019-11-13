@@ -25,18 +25,18 @@ class MyView1 extends PageViewElement {
       #contenedor{
         width: 90%;
         height: 500px;
-
+        margin: auto;
       }
 
       #infodiv{
-        height: 50%;
-        width: 90%;
+        height: 40%;
+        width: 100%;
         margin: auto;
       }
 
       #tabladiv{
-        height: 50%;
-        width: 90%;
+        height: 60%;
+        width: 70%;
         overflow:scroll;
         overflow-x:hidden;
         margin: auto;
@@ -62,7 +62,7 @@ class MyView1 extends PageViewElement {
 
       .mensaje{
         height: 100px;
-        width: 60%;
+        width: 95%;
         border: 2px solid #d6d0ce;
         margin: auto;
       }
