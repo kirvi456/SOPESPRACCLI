@@ -23,22 +23,24 @@ class MyView1 extends PageViewElement {
       css`
 
       #contenedor{
-        width: 500px;
-        height: 90%;
+        width: 90%;
+        height: 500px;
 
       }
 
       #infodiv{
-        height:50%;
-        height: 90%;
+        height: 50%;
+        width: 90%;
+        margin: auto;
       }
 
       #tabladiv{
-        height: 90%;
-        width: 50%;
+        height: 50%;
+        width: 90%;
         overflow:scroll;
         overflow-x:hidden;
         margin: auto;
+        
       }
 
       #informacion td{
@@ -46,8 +48,7 @@ class MyView1 extends PageViewElement {
       }
 
       .titulos{
-        text-align: right;
-        
+        text-align: right;        
       }
 
       #informacion{
