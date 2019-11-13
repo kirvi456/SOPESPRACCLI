@@ -61,6 +61,8 @@ class MyView1 extends PageViewElement {
         width: 100%;
         height: 70%;
         border: 1px solid #d6d0ce;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
       }
 
       .titulomensaje{
@@ -68,6 +70,8 @@ class MyView1 extends PageViewElement {
         width: 100%;
         height: 30%;
         border: 1px solid #d6d0ce;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
       }
 
       .usuariop{
