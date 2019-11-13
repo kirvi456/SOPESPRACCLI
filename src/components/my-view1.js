@@ -26,32 +26,9 @@ class MyView1 extends PageViewElement {
         width:50%;
       }
 
-      #btndiv{
-        height:100px;
-        padding:20px;
-        margin: auto;
-        width: 80%;
-        text-align: center;
-      }
-
-      #btn, #btnKill {
-        background-color: #4CAF50; 
-        border: none;
-        color: white;
-        padding: 5px 5px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-      }
-
       .titulos{
         text-align: right;
         
-      }
-
-      #total{
-        background-color: #f2f2f2;
       }
 
       #informacion{
@@ -72,31 +49,14 @@ class MyView1 extends PageViewElement {
         overflow-x:hidden;
       }
 
-      
+      .mensaje{
+        height: 90px;
+        width: 90%;
+        border: 2px solid #d6d0ce;
+        display: inline-block;
+      }
 
-      #procesos {
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        table-layout: fixed;
-        width: 100%;
-      }
-      
-      #procesos td, #customers th {
-        border: 1px solid #ddd;
-        padding: 8px;
-      }
-      
-      #procesos tr:nth-child(even){background-color: #f2f2f2;}
-      
-      #procesos tr:hover {background-color: #ddd;}
-      
-      #procesos th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #4CAF50;
-        color: white;
-      }`
+      `
     ];
   }
 
@@ -186,7 +146,7 @@ class MyView1 extends PageViewElement {
             ${myJson[k].usuario}
           </p>
           <p class = "nombrep">
-            ${myJson[k].usuario}
+            ${myJson[k].nombre}
           </p>
         </div>
         <div class = "caja_de_texto">
