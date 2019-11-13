@@ -58,6 +58,15 @@ class MyView1 extends PageViewElement {
 
       .titulomensaje{
         display: inline-block;
+        width: 90%;
+        height: 30px;
+        
+      }
+
+      .usuariop{
+        float: left;
+        font-weight: bold;
+        color: #E91E63;
       }
       `
     ];
@@ -144,14 +153,16 @@ class MyView1 extends PageViewElement {
     for(var k in myJson){
       aux +=  `
       <div class = "mensaje">
+
         <div class = "titulomensaje">
-          <p class = "titulop">
+          <p class = "usuariop">
             ${myJson[k].usuario}
           </p>
           <p class = "nombrep">
             ${myJson[k].nombre}
           </p>
         </div>
+
         <div class = "caja_de_texto">
           <p class = "textop">
             ${myJson[k].txt}
