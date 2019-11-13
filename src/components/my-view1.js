@@ -135,6 +135,13 @@ class MyView1 extends PageViewElement {
     .then(myJson => this.setContent(myJson)
     );
 
+
+    fetch('http://104.154.225.229:5000/mensajes',miInit)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(myJson => this.setMensajes(myJson)
+    );
   }
 
   setContent(myJson){
@@ -159,11 +166,39 @@ class MyView1 extends PageViewElement {
       </tr>
       <tr>
         <td class="titulos">Categoria con mas Tweets :</td>
-        <td>${myJson.item}</td>
+        <td>${myJson.item5}</td>
       </tr>
       </table>
       `;
+
+
     //this.shadowRoot.querySelector("#tabladiv").innerHTML = myJson.Procesos_tabla;
+  }
+
+
+  setMensajes(myJson){
+    let aux = ``;
+    for(var k in myJson){
+      aux +=  `
+      <div class = "mensaje">
+        <div class = "titulomensaje">
+          <p class = "titulop">
+            ${myJson[k].usuario}
+          </p>
+          <p class = "nombrep">
+            ${myJson[k].usuario}
+          </p>
+        </div>
+        <div class = "caja_de_texto">
+          <p class = "textop">
+            ${myJson[k].txt}
+          </p>     
+        </div>
+      </div>   
+      `;
+      this.shadowRoot.querySelector("#tabladiv").innerHTML = aux;
+    }
+
   }
 
   render() {
