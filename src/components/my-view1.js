@@ -139,37 +139,7 @@ class MyView1 extends PageViewElement {
    
   }
 
-  
-
-
-  setMensajes(myJson){
-    let aux = ``;
-    for(var k in myJson){
-      aux +=  `
-      <div class = "mensaje">
-
-        <div class = "titulomensaje">
-          <p class = "nombrep">
-            &nbsp;&nbsp;&nbsp;${myJson[k].nombre}
-          </p>
-          <p class = "usuariop">
-            &nbsp; @${myJson[k].usuario}
-          </p>          
-        </div>
-
-        <div class = "caja_de_texto">
-          <p class = "textop">
-            ${myJson[k].txt}
-          </p>     
-        </div>
-      </div>   
-      <hr>
-      <br>
-      `;
-      this.shadowRoot.querySelector("#tabladiv").innerHTML = aux;
-    }
-
-  }
+   
 
   render() {
     
@@ -185,6 +155,7 @@ class MyView1 extends PageViewElement {
 
   firstUpdated(){
     window.InformacionDivPagPrincipal = this.shadowRoot.querySelector("#infodiv");
+    window.MensajesDivPagPrincipal = this.shadowRoot.querySelector("#tabladiv");
 
     //PRIMERA FUNCION PARA DESPLEGAR LOS TITULOS
     window.setearTitulosPagPrincipal = ( function(myJson){
@@ -216,6 +187,35 @@ class MyView1 extends PageViewElement {
     });
 
 
+    window.setearMensajesPagPrincipa = (function(myJson){
+      let aux = ``;
+      for(var k in myJson){
+        aux +=  `
+        <div class = "mensaje">
+  
+          <div class = "titulomensaje">
+            <p class = "nombrep">
+              &nbsp;&nbsp;&nbsp;${myJson[k].nombre}
+            </p>
+            <p class = "usuariop">
+              &nbsp; @${myJson[k].usuario}
+            </p>          
+          </div>
+  
+          <div class = "caja_de_texto">
+            <p class = "textop">
+              ${myJson[k].txt}
+            </p>     
+          </div>
+        </div>   
+        <hr>
+        <br>
+        `;
+        window.MensajesDivPagPrincipal.innerHTML = aux;
+      }
+  
+    });
+
 
     window.actualizarPaginaPrincipal = (async function(){
       var miInit = { 
@@ -228,7 +228,7 @@ class MyView1 extends PageViewElement {
       .then(function(response) {
         return response.json();
       })
-      .then(myJson => this.setContent(myJson)
+      .then(myJson => window.InformacionDivPagPrincipal(myJson)
       );
 
 
@@ -236,12 +236,12 @@ class MyView1 extends PageViewElement {
       .then(function(response) {
         return response.json();
       })
-      .then(myJson => this.setMensajes(myJson)
+      .then(myJson => window.setearMensajesPagPrincipa (myJson)
       );
-
-      setTimeout(window.actualizarPaginaPrincipal(), 5000);
+      console.log("Actualizado pag principal.");
+      setTimeout(window.actualizarPaginaPrincipal, 5000);
     });
-    console.log("Actualizado pag principal.");
+    
     window.actualizarPaginaPrincipal();
   }
 
