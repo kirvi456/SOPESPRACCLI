@@ -197,7 +197,7 @@ class MyView2 extends PageViewElement {
       let data = JSON.stringify({usuario : window.CajaParaUsuario.value});
       var miInit = { 
         method: 'POST',
-        mode: 'cors',
+        //mode: 'cors',
         headers:{
           'Content-Type': 'application/json'
         },
@@ -207,7 +207,7 @@ class MyView2 extends PageViewElement {
 
       fetch('http://104.154.225.229:5000/buscarUsuario',miInit)
       .then(function(response) {
-        return response.body.json();
+        return response.json();
       })
       .then(myJson => window.setearTitulosPag2(myJson)
       );
@@ -215,7 +215,7 @@ class MyView2 extends PageViewElement {
 
       fetch('http://104.154.225.229:5000/buscarUsuario',miInit)
       .then(function(response) {
-        return response.body.json();
+        return response.json();
       })
       .then(myJson => window.setearMensajesPag2(myJson)
       );
