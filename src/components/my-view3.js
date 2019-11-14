@@ -110,7 +110,7 @@ class MyView3 extends PageViewElement {
     return html`
       <div id= "contenedor3">
       <div>
-        <input type="text" value="kirvi456" id = "buscador3">
+        <input type="text" value="nintendo" id = "buscador3">
       </div>
       <div id="infodiv3">
       </div>
@@ -141,7 +141,7 @@ class MyView3 extends PageViewElement {
         categoriaNoTweets = myJson.length;
       }
 
-      window.InformacionDivPag2.innerHTML = `
+      window.InformacionDivPag3.innerHTML = `
         <table id="informacion">
         <tr>
           <td class="titulos">No. Tweets :</td>
