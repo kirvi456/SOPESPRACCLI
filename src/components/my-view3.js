@@ -110,7 +110,7 @@ class MyView3 extends PageViewElement {
     return html`
       <div id= "contenedor3">
       <div>
-        <input type="text" value="kirvi456" id = "buscador2">
+        <input type="text" value="kirvi456" id = "buscador3">
       </div>
       <div id="infodiv3">
       </div>
