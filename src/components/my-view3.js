@@ -11,6 +11,47 @@ class MyView3 extends PageViewElement {
     return [
       SharedStyles,
       css`
+      
+
+      hr { 
+        display: block;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+      } 
+
+      #contenedor3{
+        width: 90%;
+        height: 500px;
+        margin: auto;
+      }
+
+      #infodiv3{
+        height: 40%;
+        width: 100%;
+        margin: auto;
+      }
+
+      #tabladiv3{
+        height: 60%;
+        width: 70%;
+        overflow:scroll;
+        overflow-x:hidden;
+        margin: auto;
+        
+      }
+
+      #informacion td{
+        width:50%;
+      }
+
+      .titulos{
+        text-align: right;        
+      }
+
       #informacion{
         font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
         border-collapse: collapse;
@@ -18,20 +59,45 @@ class MyView3 extends PageViewElement {
         margin: auto;
       }
 
-      #infodiv{
-        height:100px;
-        width: 80%;
-      }
+     
 
-      .titulos{
-        text-align: right;
-        
-      }
-
-      #chart1{
-        width:80%;
+      .mensaje{
+        height: 100px;
+        width: 95%;
         margin: auto;
-        text-aling: center;
+      }
+
+      .caja_de_texto{
+        display: inline-block;
+        width: 100%;
+        height: 66%; 
+      }
+
+      .titulomensaje{
+        display: inline-block;
+        width: 100%;
+        height: 25%;
+      }
+
+      .usuariop{
+        float: left;
+        margin-top: 0;
+        margin-bottom: 0;        
+        color: #a8a7a3;
+      }
+
+      .nombrep{
+        float: left;
+        margin-top: 0;
+        margin-bottom: 0;
+        
+        font-weight: bold;
+        color: #E91E63;
+      }
+
+      .textop{
+        margin-top: 0;
+        margin-bottom: 0;
       }
       `
     ];
@@ -42,12 +108,14 @@ class MyView3 extends PageViewElement {
   render() {
     
     return html`
-      <div id="infodiv">
-        
+      <div id= "contenedor3">
+      <div>
+        <input type="text" value="kirvi456" id = "buscador2">
       </div>
-
-      <div id="chart1">
-        
+      <div id="infodiv3">
+      </div>
+      <div id="tabladiv3">
+      </div>
       </div>
     `;
   }
@@ -56,63 +124,96 @@ class MyView3 extends PageViewElement {
 
 
   firstUpdated(){
-    window.divMemoria2 = this.shadowRoot.querySelector("#infodiv");
-    window.divChart12 = this.shadowRoot.querySelector("#chart1");
-    
-    window.funcGraficarCPU = (function(){
-       
-        const data = GoogleCharts.api.visualization.arrayToDataTable([
-            ['RAM', 'MB'],
-            ['Memoria libre', window.freeRamVal],
-            ['Memoria en uso', window.usoRamVal]
-        ]);
-        var options = {
-          title: 'Porcentaje de RAM usada'
-        };
-        const pie_1_chart = new GoogleCharts.api.visualization.PieChart(window.divChart12);
-        pie_1_chart.draw(data,options);
+    window.InformacionDivPag3 = this.shadowRoot.querySelector("#infodiv3");
+    window.MensajesDivPag3 = this.shadowRoot.querySelector("#tabladiv3");
+    window.CajaParaCategoria = this.shadowRoot.querySelector("#buscador3");
+
+    //PRIMERA FUNCION PARA DESPLEGAR LOS TITULOS
+    window.setearTitulosPag3 = ( function(myJson){
+      
+      console.log(myJson);
+      let categoriaNoTweets = "0";
+      
+      console.log(myJson);
+
+
+      if(myJson.length > 0){
+        categoriaNoTweets = myJson.length;
+      }
+
+      window.InformacionDivPag2.innerHTML = `
+        <table id="informacion">
+        <tr>
+          <td class="titulos">No. Tweets :</td>
+          <td>${categoriaNoTweets}</td>
+        </tr>
+        </table>
+        `;
+    });
+
+    //SEGUNDA FUNCION
+    window.setearMensajesPag3 = (function(myJson){
+      let aux = ``;
+      for(var k in myJson){
+        aux +=  `
+        <div class = "mensaje">
+  
+          <div class = "titulomensaje">
+            <p class = "nombrep">
+              &nbsp;&nbsp;&nbsp;${myJson[k].nombre}
+            </p>
+            <p class = "usuariop">
+              &nbsp; @${myJson[k].usuario}
+            </p>          
+          </div>
+  
+          <div class = "caja_de_texto">
+            <p class = "textop">
+              ${myJson[k].txt}
+            </p>     
+          </div>
+        </div>   
+        <hr>
+        <br>
+        `;
+        window.MensajesDivPag3.innerHTML = aux;
+      }
+  
+    });
+
+    //LA MERA MERA
+    window.actualizarPagina3 = (async function(){
+      let data = JSON.stringify({categoria : window.CajaParaCategoria.value});
+      var miInit = { 
+        method: 'POST',
+        //mode: 'cors',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        body: data
+      };
+  
+
+      fetch('http://104.154.225.229:5000/buscarCategoria',miInit)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(myJson => window.setearTitulosPag3(myJson)
+      );
+
+
+      fetch('http://104.154.225.229:5000/buscarCategoria',miInit)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(myJson => window.setearMensajesPag3(myJson)
+      );
+
+      console.log("Actualizado pag 2.");
+      setTimeout(window.actualizarPagina3, 5000);
     });
     
-    window.funcp = (async function(){
-      try {
-        var miInit = { 
-          method: 'GET',
-          mode: 'cors'
-        };  
-        const response = await fetch('http://35.193.165.96:3000/memoria',miInit);
-          if (response.status === 200) {
-              const myJson = await response.json(); 
-              window.totalRamVal = myJson.Total_mem;
-              window.freeRamVal = myJson.Free_mem;
-              window.usoRamVal = window.totalRamVal - window.freeRamVal;
-              window.porcentRamVal = Number(( (window.totalRamVal - window.freeRamVal)/ window.totalRamVal ) * 100).toFixed(2);
-              window.divMemoria2.innerHTML = `<table id="informacion">
-                <tr>
-                  <td class="titulos">Memoria Total :</td>
-                  <td>${window.totalRamVal}</td>
-                </tr>
-                <tr>
-                  <td class="titulos">Memoria Usada :</td>
-                  <td>${window.totalRamVal - window.freeRamVal}</td>
-                </tr>
-                <tr>
-                  <td class="titulos">Memoria Libre :</td>
-                  <td>${window.freeRamVal}</td>
-                </tr>
-                <tr>
-                  <td class="titulos">Porcentaje :</td>
-                  <td>${window.porcentRamVal}</td>
-                </tr>
-              </table> `;        
-              window.funcGraficarCPU();
-          } 
-      } catch (err) {
-          console.log(err);
-      } 
-      setTimeout(window.funcp, 1000);
-    });
-    window.funcp();
-    GoogleCharts.load(window.funcGraficarCPU);
+    window.actualizarPagina3();
   }
 
 
