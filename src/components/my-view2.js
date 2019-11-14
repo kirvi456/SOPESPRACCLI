@@ -192,7 +192,7 @@ class MyView2 extends PageViewElement {
       let data = JSON.stringify({usuario : window.CajaParaUsuario.value});
       var miInit = { 
         method: 'GET',
-        mode: 'cors',
+        mode: 'no-cors',
         headers:{
           'Content-Type': 'application/json'
         },
