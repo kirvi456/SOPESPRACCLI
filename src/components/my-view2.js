@@ -36,9 +36,10 @@ class MyView2 extends PageViewElement {
       }
 
       #buscadordiv{
-        height: 60px;
+        height: 40px;
         width: 50%;
         margin: auto;
+        text-align: center;
       }
 
       #tabladiv2{
