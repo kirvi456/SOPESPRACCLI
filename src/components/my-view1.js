@@ -139,36 +139,7 @@ class MyView1 extends PageViewElement {
    
   }
 
-  setContent(myJson){
-
-    this.shadowRoot.querySelector("#infodiv").innerHTML = `
-      <table id="informacion">
-      <tr>
-        <td class="titulos">Total de Usuarios :</td>
-        <td>${myJson.item1}</td>
-      </tr>
-      <tr>
-        <td class="titulos">Total de Tweets :</td>
-        <td>${myJson.item2}</td>
-      </tr>
-      <tr>
-        <td class="titulos">Total de Categorias :</td>
-        <td>${myJson.item3}</td>
-      </tr>
-      <tr>
-        <td class="titulos">Usuario con mas Tweets :</td>
-        <td>${myJson.item4}</td>
-      </tr>
-      <tr>
-        <td class="titulos">Categoria con mas Tweets :</td>
-        <td>${myJson.item5}</td>
-      </tr>
-      </table>
-      `;
-
-
-    //this.shadowRoot.querySelector("#tabladiv").innerHTML = myJson.Procesos_tabla;
-  }
+  
 
 
   setMensajes(myJson){
@@ -213,6 +184,39 @@ class MyView1 extends PageViewElement {
   }
 
   firstUpdated(){
+    window.InformacionDivPagPrincipal = this.shadowRoot.querySelector("#infodiv");
+
+    //PRIMERA FUNCION PARA DESPLEGAR LOS TITULOS
+    window.setearTitulosPagPrincipal = ( function(myJson){
+
+      window.InformacionDivPagPrincipal.innerHTML = `
+        <table id="informacion">
+        <tr>
+          <td class="titulos">Total de Usuarios :</td>
+          <td>${myJson.item1}</td>
+        </tr>
+        <tr>
+          <td class="titulos">Total de Tweets :</td>
+          <td>${myJson.item2}</td>
+        </tr>
+        <tr>
+          <td class="titulos">Total de Categorias :</td>
+          <td>${myJson.item3}</td>
+        </tr>
+        <tr>
+          <td class="titulos">Usuario con mas Tweets :</td>
+          <td>${myJson.item4}</td>
+        </tr>
+        <tr>
+          <td class="titulos">Categoria con mas Tweets :</td>
+          <td>${myJson.item5}</td>
+        </tr>
+        </table>
+        `;
+    });
+
+
+
     window.actualizarPaginaPrincipal = (async function(){
       var miInit = { 
         method: 'GET',
