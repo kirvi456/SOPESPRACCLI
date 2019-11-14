@@ -35,6 +35,12 @@ class MyView2 extends PageViewElement {
         margin: auto;
       }
 
+      #infodiv2{
+        height: 60px;
+        width: 50%;
+        margin: auto;
+      }
+
       #tabladiv2{
         height: 60%;
         width: 70%;
@@ -108,7 +114,7 @@ class MyView2 extends PageViewElement {
   render() {
     return html`
       <div id= "contenedor2">
-        <div>
+        <div id= "buscadordiv">
           <input type="text" value="kirvi456" id = "buscador1">
         </div>
         <div id="infodiv2">
