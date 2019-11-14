@@ -137,7 +137,7 @@ class MyView2 extends PageViewElement {
       
       console.log(myJson);
 
-      
+
       if(myJson.length > 0){
         usuarioUser = myJson[0]["usuario"];
         usuarioName = myJson[0]["nombre"];
@@ -207,7 +207,7 @@ class MyView2 extends PageViewElement {
 
       fetch('http://104.154.225.229:5000/buscarUsuario',miInit)
       .then(function(response) {
-        return response;
+        return response.body.json();
       })
       .then(myJson => window.setearTitulosPag2(myJson)
       );
@@ -215,7 +215,7 @@ class MyView2 extends PageViewElement {
 
       fetch('http://104.154.225.229:5000/buscarUsuario',miInit)
       .then(function(response) {
-        return response;
+        return response.body.json();
       })
       .then(myJson => window.setearMensajesPag2(myJson)
       );
