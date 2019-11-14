@@ -136,30 +136,7 @@ class MyView1 extends PageViewElement {
   obtenerDatos(){
 
     
-    window.actualizarPaginaPrincipal = (async function(){
-      var miInit = { 
-        method: 'GET',
-        mode: 'cors'
-      };
-  
-
-      fetch('http://104.154.225.229:5000/informacion',miInit)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(myJson => this.setContent(myJson)
-      );
-
-
-      fetch('http://104.154.225.229:5000/mensajes',miInit)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(myJson => this.setMensajes(myJson)
-      );
-
-      setTimeout(window.actualizarPaginaPrincipal(), 5000);
-    });
+   
   }
 
   setContent(myJson){
@@ -236,6 +213,31 @@ class MyView1 extends PageViewElement {
   }
 
   firstUpdated(){
+    window.actualizarPaginaPrincipal = (async function(){
+      var miInit = { 
+        method: 'GET',
+        mode: 'cors'
+      };
+  
+
+      fetch('http://104.154.225.229:5000/informacion',miInit)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(myJson => this.setContent(myJson)
+      );
+
+
+      fetch('http://104.154.225.229:5000/mensajes',miInit)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(myJson => this.setMensajes(myJson)
+      );
+
+      setTimeout(window.actualizarPaginaPrincipal(), 5000);
+    });
+    console.log("Actualizado pag principal.");
     window.actualizarPaginaPrincipal();
   }
 
