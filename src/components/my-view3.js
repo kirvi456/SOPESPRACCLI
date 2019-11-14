@@ -131,10 +131,10 @@ class MyView3 extends PageViewElement {
     //PRIMERA FUNCION PARA DESPLEGAR LOS TITULOS
     window.setearTitulosPag3 = ( function(myJson){
       
-      console.log(myJson);
+     
       let categoriaNoTweets = "0";
       
-      console.log(myJson);
+      
 
 
       if(myJson.length > 0){
@@ -210,7 +210,7 @@ class MyView3 extends PageViewElement {
       .then(myJson => window.setearMensajesPag3(myJson)
       );
 
-      console.log("Actualizado pag 2.");
+      
       setTimeout(window.actualizarPagina3, 5000);
     });
     

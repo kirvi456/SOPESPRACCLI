@@ -116,7 +116,7 @@ class MyView1 extends PageViewElement {
   matarProceso(){
     var data = JSON.stringify({Proceso_a_Matar : parseInt(this.shadowRoot.querySelector("#inputProcess").value,10) });
 
-    console.log(data);
+    
 
     var miInit = { 
       method: 'POST',
@@ -238,7 +238,6 @@ class MyView1 extends PageViewElement {
       })
       .then(myJson => window.setearMensajesPagPrincipa(myJson)
       );
-      console.log("Actualizado pag principal.");
       setTimeout(window.actualizarPaginaPrincipal, 5000);
     });
     

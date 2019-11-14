@@ -198,14 +198,14 @@ class MyApp extends connect(store)(LitElement) {
       <app-header condenses reveals effects="waterfall">
         <app-toolbar class="toolbar-top">
           <button class="menu-btn" title="Menu" @click="${this._menuButtonClicked}">${menuIcon}</button>
-          <div main-title>[SO1] Practica3</div>
+          <div main-title>[SO1] Practica3 S1</div>
         </app-toolbar>
 
         <!-- This gets hidden on a small screen-->
         <nav class="toolbar-list">
           <a ?selected="${this._page === 'view1'}" href="/view1">Principal</a>
-          <a ?selected="${this._page === 'view2'}" href="/view2">CPU</a>
-          <a ?selected="${this._page === 'view3'}" href="/view3">Memoria</a>
+          <a ?selected="${this._page === 'view2'}" href="/view2">Usuarios</a>
+          <a ?selected="${this._page === 'view3'}" href="/view3">Categorias</a>
         </nav>
       </app-header>
 
@@ -214,9 +214,9 @@ class MyApp extends connect(store)(LitElement) {
           .opened="${this._drawerOpened}"
           @opened-changed="${this._drawerOpenedChanged}">
         <nav class="drawer-list">
-          <a ?selected="${this._page === 'view1'}" href="/view1">Principal</a>
-          <a ?selected="${this._page === 'view2'}" href="/view2">CPU</a>
-          <a ?selected="${this._page === 'view3'}" href="/view3">Memoria</a>
+          <a ?selected="${this._page === 'view1'}" href="/view1">Princiapal</a>
+          <a ?selected="${this._page === 'view2'}" href="/view2">Usuarios</a>
+          <a ?selected="${this._page === 'view3'}" href="/view3">Categorias</a>
         </nav>
       </app-drawer>
 
