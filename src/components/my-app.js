@@ -198,7 +198,7 @@ class MyApp extends connect(store)(LitElement) {
       <app-header condenses reveals effects="waterfall">
         <app-toolbar class="toolbar-top">
           <button class="menu-btn" title="Menu" @click="${this._menuButtonClicked}">${menuIcon}</button>
-          <div main-title>[SO1] Practica3 S1</div>
+          <div main-title>[SO1] Practica3 S2</div>
         </app-toolbar>
 
         <!-- This gets hidden on a small screen-->
