@@ -11,15 +11,93 @@ class MyView2 extends PageViewElement {
     return [
       SharedStyles,
       css`
-      #informacion{
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 50%;
+      
+
+      hr { 
+        display: block;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+      } 
+
+      #contenedor{
+        width: 90%;
+        height: 500px;
         margin: auto;
       }
 
       #infodiv{
-        height:90px;
+        height: 40%;
+        width: 100%;
+        margin: auto;
+      }
+
+      #tabladiv{
+        height: 60%;
+        width: 70%;
+        overflow:scroll;
+        overflow-x:hidden;
+        margin: auto;
+        
+      }
+
+      #informacion td{
+        width:50%;
+      }
+
+      .titulos{
+        text-align: right;        
+      }
+
+      #informacion{
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 60%;
+        margin: auto;
+      }
+
+     
+
+      .mensaje{
+        height: 100px;
+        width: 95%;
+        margin: auto;
+      }
+
+      .caja_de_texto{
+        display: inline-block;
+        width: 100%;
+        height: 66%; 
+      }
+
+      .titulomensaje{
+        display: inline-block;
+        width: 100%;
+        height: 25%;
+      }
+
+      .usuariop{
+        float: left;
+        margin-top: 0;
+        margin-bottom: 0;        
+        color: #a8a7a3;
+      }
+
+      .nombrep{
+        float: left;
+        margin-top: 0;
+        margin-bottom: 0;
+        
+        font-weight: bold;
+        color: #E91E63;
+      }
+
+      .textop{
+        margin-top: 0;
+        margin-bottom: 0;
       }
       `
     ];
@@ -28,14 +106,15 @@ class MyView2 extends PageViewElement {
   
 
   render() {
-    
     return html`
-      <div id="infodiv">
-        
-      </div>
-
-      <div id="chart1">
-        
+      <div id= "contenedor2">
+        <div>
+          <input type="text" value="kirvi456" id = "buscador1">
+        </div>
+        <div id="infodiv2">
+        </div>
+        <div id="tabladiv2">
+        </div>
       </div>
     `;
   }
@@ -44,66 +123,101 @@ class MyView2 extends PageViewElement {
 
 
   firstUpdated(){
-    window.valoresCPU = [0,0,0,0,0,0,0,0,0,0];
-    window.divMemoria = this.shadowRoot.querySelector("#infodiv");
-    window.divChart1 = this.shadowRoot.querySelector("#chart1");
-    
-    window.funcGraficarCPU = (function(){
-      for(var i = 0; i <= 8; i++){
-        window.valoresCPU[i] = window.valoresCPU[i+1];
+    window.InformacionDivPag2 = this.shadowRoot.querySelector("#infodiv");
+    window.MensajesDivPag2 = this.shadowRoot.querySelector("#tabladiv");
+    window.CajaParaUsuario = this.shadowRoot.querySelector("#buscador1");
+
+    //PRIMERA FUNCION PARA DESPLEGAR LOS TITULOS
+    window.setearTitulosPag2 = ( function(myJson){
+      let usuarioUser = "--";
+      let usuarioName = "--";
+      let usuarioNoTweets = "0";
+
+      if(myJson.length > 0){
+        usuarioUser = myJson[0]["usuario"];
+        usuarioName = myJson[0]["nombre"];
+        usuarioNoTweets = myJson.length;
       }
-      window.valoresCPU[9] = typeof window.cpuVal == 'string' ? parseFloat(window.cpuVal):window.cpuVal;
-       console.log(window.valoresCPU);
-        const data = GoogleCharts.api.visualization.arrayToDataTable([
-            ['Tiempo', 'Porcentaje'],
-            ['-9', window.valoresCPU[0]],
-            ['-8', window.valoresCPU[1]],
-            ['-7', window.valoresCPU[2]],
-            ['-6', window.valoresCPU[3]],
-            ['-5', window.valoresCPU[4]],
-            ['-4', window.valoresCPU[5]],
-            ['-3', window.valoresCPU[6]],
-            ['-2', window.valoresCPU[7]],
-            ['-1', window.valoresCPU[8]],
-            ['0', window.valoresCPU[9]]
-        ]);
-        var options = {
-          title: 'Company Performance',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-        const pie_1_chart = new GoogleCharts.api.visualization.LineChart(window.divChart1);
-        pie_1_chart.draw(data,options);
+
+      window.InformacionDivPag2.innerHTML = `
+        <table id="informacion">
+        <tr>
+          <td class="titulos">Usuario :</td>
+          <td>${usuarioUser}</td>
+        </tr>
+        <tr>
+          <td class="titulos">Nombre :</td>
+          <td>${usuarioName}</td>
+        </tr>
+        <tr>
+          <td class="titulos">No. Tweets :</td>
+          <td>${usuarioNoTweets}</td>
+        </tr>
+        </table>
+        `;
+    });
+
+    //SEGUNDA FUNCION
+    window.setearMensajesPag2 = (function(myJson){
+      let aux = ``;
+      for(var k in myJson){
+        aux +=  `
+        <div class = "mensaje">
+  
+          <div class = "titulomensaje">
+            <p class = "nombrep">
+              &nbsp;&nbsp;&nbsp;${myJson[k].nombre}
+            </p>
+            <p class = "usuariop">
+              &nbsp; @${myJson[k].usuario}
+            </p>          
+          </div>
+  
+          <div class = "caja_de_texto">
+            <p class = "textop">
+              ${myJson[k].txt}
+            </p>     
+          </div>
+        </div>   
+        <hr>
+        <br>
+        `;
+        window.MensajesDivPag2.innerHTML = aux;
+      }
+  
+    });
+
+    //LA MERA MERA
+    window.actualizarPagina2 = (async function(){
+      let data = JSON.stringify({usuario : window.CajaParaUsuario.value});
+      var miInit = { 
+        method: 'GET',
+        mode: 'cors',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        body: data
+      };
+  
+
+      fetch('http://104.154.225.229:5000/buscarUsuario',miInit)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(myJson => window.setearTitulosPag2(myJson));
+
+
+      fetch('http://104.154.225.229:5000/buscarUsuario',miInit)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(myJson => window.setearMensajesPag2(myJson));
+
+      console.log("Actualizado pag 2.");
+      setTimeout(window.actualizarPagina2, 5000);
     });
     
-    window.funcp = (async function(){
-      try {
-        var miInit = { 
-          method: 'GET',
-          mode: 'cors'
-        };  
-        const response = await fetch('http://35.193.165.96:3000/cpu',miInit);
-          if (response.status === 200) {
-              const myJson = await response.json(); 
-              window.cpuVal = Number(myJson.Uso_cpu).toFixed(2);
-              if(window.cpuVal >=  100){
-                 window.cpuVal = 99.9;
-              } 
-              window.divMemoria.innerHTML = `<table id="informacion">
-                <tr>
-                  <td class="titulos">Cpu en uso :</td>
-                  <td>${window.cpuVal}</td>
-                </tr>
-              </table> `;        
-              window.funcGraficarCPU();
-          } 
-      } catch (err) {
-          console.log(err);
-      } 
-      setTimeout(window.funcp, 1000);
-    });
-    window.funcp();
-    GoogleCharts.load(window.funcGraficarCPU);
+    window.actualizarPagina2();
   }
 
 
