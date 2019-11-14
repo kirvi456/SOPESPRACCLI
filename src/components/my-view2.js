@@ -129,11 +129,11 @@ class MyView2 extends PageViewElement {
 
     //PRIMERA FUNCION PARA DESPLEGAR LOS TITULOS
     window.setearTitulosPag2 = ( function(myJson){
-      console.log(myJson);
+      
       let usuarioUser = "--";
       let usuarioName = "--";
       let usuarioNoTweets = "0";
-
+      console.log(myJson);
       if(myJson.length > 0){
         usuarioUser = myJson[0]["usuario"];
         usuarioName = myJson[0]["nombre"];
