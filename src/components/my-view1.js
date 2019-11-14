@@ -224,7 +224,7 @@ class MyView1 extends PageViewElement {
       };
   
 
-      fetch('http://34.70.42.164:5000/informacion',miInit)
+      fetch('http://104.154.225.229:5000/informacion',miInit)
       .then(function(response) {
         return response.json();
       })
@@ -232,7 +232,7 @@ class MyView1 extends PageViewElement {
       );
 
 
-      fetch('http://34.70.42.164:5000/mensajes',miInit)
+      fetch('http://104.154.225.229:5000/mensajes',miInit)
       .then(function(response) {
         return response.json();
       })

@@ -211,7 +211,7 @@ class MyView2 extends PageViewElement {
       };
   
 
-      fetch('http://34.70.42.164:5000/buscarUsuario',miInit)
+      fetch('http://104.154.225.229:5000/buscarUsuario',miInit)
       .then(function(response) {
         return response.json();
       })
@@ -219,7 +219,7 @@ class MyView2 extends PageViewElement {
       );
 
 
-      fetch('http://34.70.42.164:5000/buscarUsuario',miInit)
+      fetch('http://104.154.225.229:5000/buscarUsuario',miInit)
       .then(function(response) {
         return response.json();
       })
