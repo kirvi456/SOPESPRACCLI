@@ -176,8 +176,9 @@ class MyView3 extends PageViewElement {
         <hr>
         <br>
         `;
-        window.MensajesDivPag3.innerHTML = aux;
+        
       }
+      window.MensajesDivPag3.innerHTML = aux;
   
     });
 

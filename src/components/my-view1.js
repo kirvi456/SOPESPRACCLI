@@ -211,9 +211,9 @@ class MyView1 extends PageViewElement {
         <hr>
         <br>
         `;
-        window.MensajesDivPagPrincipal.innerHTML = aux;
+        
       }
-  
+      window.MensajesDivPagPrincipal.innerHTML = aux;
     });
 
     //LA MERA MERA
