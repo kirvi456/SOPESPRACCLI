@@ -23,19 +23,19 @@ class MyView2 extends PageViewElement {
         border-width: 1px;
       } 
 
-      #contenedor{
+      #contenedor2{
         width: 90%;
         height: 500px;
         margin: auto;
       }
 
-      #infodiv{
+      #infodiv2{
         height: 40%;
         width: 100%;
         margin: auto;
       }
 
-      #tabladiv{
+      #tabladiv2{
         height: 60%;
         width: 70%;
         overflow:scroll;
@@ -123,8 +123,8 @@ class MyView2 extends PageViewElement {
 
 
   firstUpdated(){
-    window.InformacionDivPag2 = this.shadowRoot.querySelector("#infodiv");
-    window.MensajesDivPag2 = this.shadowRoot.querySelector("#tabladiv");
+    window.InformacionDivPag2 = this.shadowRoot.querySelector("#infodiv2");
+    window.MensajesDivPag2 = this.shadowRoot.querySelector("#tabladiv2");
     window.CajaParaUsuario = this.shadowRoot.querySelector("#buscador1");
 
     //PRIMERA FUNCION PARA DESPLEGAR LOS TITULOS
