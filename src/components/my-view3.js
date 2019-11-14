@@ -35,6 +35,15 @@ class MyView3 extends PageViewElement {
         margin: auto;
       }
 
+      #buscadordiv{
+        height: 40px;
+        width: 50%;
+        margin: auto;
+        text-align: center;
+      }
+
+
+
       #tabladiv3{
         height: 60%;
         width: 70%;
@@ -109,7 +118,7 @@ class MyView3 extends PageViewElement {
     
     return html`
       <div id= "contenedor3">
-      <div>
+      <div id = "buscadordiv">
         <input type="text" value="nintendo" id = "buscador3">
       </div>
       <div id="infodiv3">
