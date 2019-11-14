@@ -201,17 +201,11 @@ class MyView2 extends PageViewElement {
   
 
       fetch('http://104.154.225.229:5000/buscarUsuario',miInit)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(myJson => window.setearTitulosPag2(myJson));
+      .then(response => window.setearTitulosPag2());
 
 
       fetch('http://104.154.225.229:5000/buscarUsuario',miInit)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(myJson => window.setearMensajesPag2(myJson));
+      .then(response => window.setearTitulosPag2());
 
       console.log("Actualizado pag 2.");
       setTimeout(window.actualizarPagina2, 5000);
