@@ -191,7 +191,7 @@ class MyView2 extends PageViewElement {
     window.actualizarPagina2 = (async function(){
       let data = JSON.stringify({usuario : window.CajaParaUsuario.value});
       var miInit = { 
-        method: 'GET',
+        method: 'POST',
         mode: 'no-cors',
         headers:{
           'Content-Type': 'application/json'
