@@ -186,7 +186,7 @@ class MyView1 extends PageViewElement {
         `;
     });
 
-
+    //SEGUNDA FUNCION
     window.setearMensajesPagPrincipa = (function(myJson){
       let aux = ``;
       for(var k in myJson){
@@ -216,7 +216,7 @@ class MyView1 extends PageViewElement {
   
     });
 
-
+    //LA MERA MERA
     window.actualizarPaginaPrincipal = (async function(){
       var miInit = { 
         method: 'GET',
@@ -228,7 +228,7 @@ class MyView1 extends PageViewElement {
       .then(function(response) {
         return response.json();
       })
-      .then(myJson => window.InformacionDivPagPrincipal(myJson)
+      .then(myJson => window.setearTitulosPagPrincipal(myJson)
       );
 
 
@@ -236,7 +236,7 @@ class MyView1 extends PageViewElement {
       .then(function(response) {
         return response.json();
       })
-      .then(myJson => window.setearMensajesPagPrincipa (myJson)
+      .then(myJson => window.setearMensajesPagPrincipa(myJson)
       );
       console.log("Actualizado pag principal.");
       setTimeout(window.actualizarPaginaPrincipal, 5000);
