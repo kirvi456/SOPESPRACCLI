@@ -35,7 +35,7 @@ class MyView2 extends PageViewElement {
         margin: auto;
       }
 
-      #infodiv2{
+      #buscadordiv{
         height: 60px;
         width: 50%;
         margin: auto;
